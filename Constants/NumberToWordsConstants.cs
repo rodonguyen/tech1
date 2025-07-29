@@ -2,6 +2,7 @@ namespace Converter.Constants
 {
     public static class NumberToWordsConstants
     {
+        public static readonly string ZERO = "ZERO";
         public static readonly string[] Units =
         {
             "", // 0 unit does not need a conversion
@@ -49,5 +50,15 @@ namespace Converter.Constants
             "BILLION",
             "TRILLION"
         };
+    }
+
+    public static class Numbers
+    {
+        public static readonly long ONE_QUADRILLION = 1000000000000000;
+        public static readonly long ONE_TRILLION = 1000000000000;
+        public static readonly long ONE_BILLION = 1000000000;
+        public static readonly long ONE_MILLION = 1000000;
+        public static readonly long ONE_THOUSAND = 1000;
+        public static readonly long ONE_HUNDRED = 100;
     }
 }

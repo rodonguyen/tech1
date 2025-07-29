@@ -26,6 +26,7 @@ Newest version of .NET is used for ...
 API version (i.e. adding v1/ prefix to API route) was considered for future upgrades in case too many changes polute the original code. But this was omitted since it is a simple app.  
 Build the endpoint with expansion in mind: handle Euros, VND, NZD.  
 The input is a currency amount so the filename and function names also reflect and carr this meaning. Make it easier to understand for Developers  
+Only use "and" between the dollars and cents compared to the example, making the logic simpler without sacrificing any meaning
 
 ## Design
 
