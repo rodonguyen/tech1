@@ -47,9 +47,12 @@ Some of my decision and thinking when implementing this solution:
 #### User workflow
 ![UserWorkflow](docs/user-flow.jpg)
 
+#### Number processing workflow
+![NumberProcessingWorkflow](docs/number-processing-workflow.png)
+
 #### APIs
 
-GET /convert/{currencyAmount}
+`GET /convert/{currencyAmount}`
 
 #### Tests
 - Apply Test-Driven Developement (TDD)
