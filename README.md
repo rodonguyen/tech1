@@ -1,32 +1,37 @@
 # Converter
 
-Convert any money number to words
+Convert any monetary amount to words
 
 
 ## Getting started
 
+```powershell
+# This project is created from .NET MVC template
 dotnet new mvc -o Converter
+```
 
-dotnet restore ??
+To run the server:
 
-dotnet buid
-
-dotnet run # also build
-dotnet run --watch ??
-
+```powershell
+dotnet restore
+dotnet build
+dotnet run
+# dotnet watch  # for hot reloads in development
+```
 
 
 
 ## About the implementation 
 
-How you do it and why not the other ways?  
-Time and space complexity, is it efficient?  
-Make input and the data Front End sends number or decimal in .NET for easier processing 
-Newest version of .NET is used for ...  
-API version (i.e. adding v1/ prefix to API route) was considered for future upgrades in case too many changes polute the original code. But this was omitted since it is a simple app.  
-Build the endpoint with expansion in mind: handle Euros, VND, NZD.  
-The input is a currency amount so the filename and function names also reflect and carr this meaning. Make it easier to understand for Developers  
-Only use "and" between the dollars and cents compared to the example, making the logic simpler without sacrificing any meaning
+Some of my decision and thinking when implementing this solution:
+- Time complexity is O(n) - the algorithm is efficient even when dealing with large input
+- Input is passed as `decimal` for easier processing, without an extra step of parsing
+- Latest LTS version of .NET is used, making sure the codebase is up-to-date with latest features and securities
+- API versioning (i.e. adding v1/ prefix to API route) was considered for future upgrades in case too many changes polute the original code but was not implemented as this is still a simple app and future features / enhancements are unclear.
+- The convert logic in `ConvertService.cs` is written with expansion in mind (we may add EUR, VND, or NZD in the future). Therefore, the logic is broken down to simple steps and modular functions and super easy to understand.
+- The input is a currency amount so the file and function names also reflect and carry this business logic, making it easier to understand for Developers.  
+- Only use "and" between the dollars and cents compared to the example, making the logic simpler without sacrificing any meaning.
+- In test file `ConvertServiceTests.cs`, I use `string` input instead of number as InlineData perceives its input as `double` and lose the precision when passing to the tested function. In the body, the test then parse the `string` back to `decimal` to preserve precision.
 
 ## Design
 
