@@ -2,7 +2,6 @@
 
 Convert any monetary amount to words
 
-
 ## Getting started
 
 ```powershell
@@ -13,6 +12,7 @@ dotnet new mvc -o Converter
 To run the server:
 
 ```powershell
+cd 
 dotnet restore
 dotnet build
 dotnet run
@@ -44,7 +44,7 @@ Some of my decision and thinking when implementing this solution:
 3. As a product owner, I want the algorithm to be efficient - reaching O(n) time complexity.
 
 #### Technologies
-- Frontend: React, TypeScript, Shadcn
+- Frontend: React, Vite, TypeScript, Shadcn
 - Backend: ASP.NET 8
 
 #### User workflow
