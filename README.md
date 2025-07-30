@@ -19,7 +19,10 @@ dotnet run
 # dotnet watch  # for hot reloads in development
 ```
 
-
+To run unit tests:
+```powershell
+dotnet test
+```
 
 ## About the implementation 
 
