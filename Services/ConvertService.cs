@@ -1,3 +1,4 @@
+using System.Globalization;
 using Converter.Constants;
 
 namespace Converter.Services;
@@ -10,7 +11,7 @@ public class ConvertService
 
         // Convert to words
         long integerPart = (long)number;
-        long decimalPart = (long)((number - integerPart) * 100);
+        long decimalPart = (long)(number * 100) % 100;
 
         string integerPartWords = ConvertIntegerToWords(integerPart);
         string decimalPartWords = ConvertIntegerToWords(decimalPart);
@@ -21,7 +22,7 @@ public class ConvertService
         string dollars = integerPart > 1 ? "DOLLARS" : "DOLLAR";
         string cents = decimalPart > 1 ? "CENTS" : "CENT";
 
-        if (decimalPart > 0 && integerPart > 0)
+        if (integerPart > 0 && decimalPart > 0)
             return $"{integerPartWords} {dollars} AND {decimalPartWords} {cents}";
         else if (integerPart > 0 && decimalPart == 0)
             return $"{integerPartWords} {dollars}";
