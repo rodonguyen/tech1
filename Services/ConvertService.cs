@@ -32,35 +32,19 @@ public class ConvertService
             return $"{NumberToWordsConstants.ZERO} {dollars}";
     }
 
-    private string ConvertIntegerToWords(long aLong)
+    private static string ConvertIntegerToWords(long aLong)
     {
         string result = "";
 
-        // Convert trillions, billions, millions, thousands
-        if (aLong >= Numbers.ONE_TRILLION)
-        {
-            int trillions = (int)(aLong / Numbers.ONE_TRILLION);
-            result += ConvertIntegerToWords(trillions) + " TRILLION";
-            aLong %= Numbers.ONE_TRILLION;
-        }
-        if (aLong >= Numbers.ONE_BILLION)
-        {
-            int billions = (int)(aLong / Numbers.ONE_BILLION);
-            result += ConvertIntegerToWords(billions) + " BILLION";
-            aLong %= Numbers.ONE_BILLION;
-        }
-        if (aLong >= Numbers.ONE_MILLION)
-        {
-            int millions = (int)(aLong / Numbers.ONE_MILLION);
-            result += ConvertIntegerToWords(millions) + " MILLION";
-            aLong %= Numbers.ONE_MILLION;
-        }
-        if (aLong >= Numbers.ONE_THOUSAND)
-        {
-            int thousands = (int)(aLong / Numbers.ONE_THOUSAND);
-            result += ConvertIntegerToWords(thousands) + " THOUSAND";
-            aLong %= Numbers.ONE_THOUSAND;
-        }
+        // Convert scale values: trillions, billions, millions, thousands
+        for (int i = 0; i < NumberToWordsConstants.ScaleNames.Length; i++)
+            if (aLong >= NumberToWordsConstants.ScaleValues[i])
+            {
+                int scaleValue = (int)(aLong / NumberToWordsConstants.ScaleValues[i]);
+                result +=
+                    ConvertIntegerToWords(scaleValue) + " " + NumberToWordsConstants.ScaleNames[i];
+                aLong %= NumberToWordsConstants.ScaleValues[i];
+            }
 
         // Convert hundreds, tens, and units
         if (aLong > 0)
@@ -90,7 +74,7 @@ public class ConvertService
         return result;
     }
 
-    private void ValidateInput(decimal number)
+    private static void ValidateInput(decimal number)
     {
         if (number < 0)
             throw new ArgumentException("Invalid input: Negative numbers are not allowed");

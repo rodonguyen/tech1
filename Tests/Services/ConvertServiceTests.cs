@@ -76,7 +76,7 @@ public class ConvertServiceTests
     [InlineData("1000000", "ONE MILLION DOLLARS")]
     [InlineData("1000000000", "ONE BILLION DOLLARS")]
     [InlineData("1000000000000", "ONE TRILLION DOLLARS")]
-    public void ConvertToWords_ThousandsNumbers_ReturnsCorrectWords(string input, string expected)
+    public void ConvertToWords_LargeScaleNumbers_ReturnsCorrectWords(string input, string expected)
     {
         var result = _convertService.ConvertCurrencyAmountToWords(
             decimal.Parse(input, CultureInfo.InvariantCulture)

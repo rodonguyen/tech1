@@ -31,7 +31,7 @@ Some of my decision and thinking when implementing this solution:
 - Input is passed as `decimal` for easier processing, without an extra step of parsing
 - Latest LTS version of .NET is used, making sure the codebase is up-to-date with latest features and securities
 - API versioning (i.e. adding v1/ prefix to API route) was considered for future upgrades in case too many changes polute the original code but was not implemented as this is still a simple app and future features / enhancements are unclear.
-- The convert logic in `ConvertService.cs` is written with expansion in mind (we may add EUR, VND, or NZD in the future). Therefore, the logic is broken down to simple steps and modular functions and super easy to understand.
+- The convert logic in `ConvertService.cs` is written with expansion in mind (we may add EUR, VND, or NZD in the future). Therefore, the logic is broken down to simple steps and modular functions for reuse and better readability.
 - The input is a currency amount so the file and function names also reflect and carry this business logic, making it easier to understand for Developers.  
 - Only use "and" between the dollars and cents compared to the example, making the logic simpler without sacrificing any meaning.
 - In test file `ConvertServiceTests.cs`, I use `string` input instead of number as InlineData perceives its input as `double` and lose the precision when passing to the tested function. In the body, the test then parse the `string` back to `decimal` to preserve precision.

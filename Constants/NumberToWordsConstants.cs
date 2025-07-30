@@ -42,13 +42,20 @@ namespace Converter.Constants
             "EIGHTY",
             "NINETY"
         };
-        public static readonly string[] Thousands =
+        public static readonly string[] ScaleNames =
         {
-            "", // 0 thousand does not need a conversion
-            "THOUSAND",
-            "MILLION",
+            "TRILLION",
             "BILLION",
-            "TRILLION"
+            "MILLION",
+            "THOUSAND"
+        };
+
+        public static readonly long[] ScaleValues =
+        {
+            Numbers.ONE_TRILLION,
+            Numbers.ONE_BILLION,
+            Numbers.ONE_MILLION,
+            Numbers.ONE_THOUSAND
         };
     }
 
