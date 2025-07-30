@@ -1,6 +1,8 @@
 # Converter
 
 Convert any monetary amount to words
+![FrontEnd](docs/frontend.png)
+
 
 ## Getting started
 
